@@ -24,15 +24,15 @@ const Navbar = () => {
 
         {/* Botões e menu */}
         <div className='flex gap-4'>
-          <a href='/categorias'>Categorias</a>
-          <a href='/produtos'>Produtos</a>
-          <a href='/produtos'>Delivery</a>
-          <a href='/carrinho' className='px-4 py- text-sm hover:text-cyan-700'>
+          <Link to='/categorias'>Categorias</Link>
+          <Link to='/produtos'>Produtos</Link>
+          <Link to='/produtos'>Delivery</Link>
+          <Link to='/carrinho' className='px-4 py- text-sm hover:text-cyan-700'>
             <ShoppingCart size={30} />
-          </a>
-          <a href='/sair' className='px-4 py- text-sm hover:text-cyan-700'>
+          </Link>
+          <Link to='/sair' className='px-4 py- text-sm hover:text-cyan-700'>
             <SignOut size={30} />
-          </a>
+          </Link>
         </div>
        </div>
       </>

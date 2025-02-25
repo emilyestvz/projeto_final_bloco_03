@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Categoria from "../../../models/Categoria";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
+import { ToastAlert } from "../../../utils/ToastAlert";
 
 const FormCategorias = () => {
     const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
@@ -36,21 +37,21 @@ const FormCategorias = () => {
           try {
              await atualizar(`/categorias`, categoria, setCategoria)
  
-             alert('Categoria atualizada com sucesso')
+             ToastAlert('Categoria atualizada com sucesso!', 'sucesso')
              retornar()
  
           } catch (error: any) {
-             alert('Erro ao atualizar o Tema')
+             ToastAlert('Erro ao atualizar o tema!', 'erro')
           }
  
        } else {
           try {
              await cadastrar(`/categorias`, categoria, setCategoria)
  
-             alert('Categoria cadastrada com sucesso')
+             ToastAlert('Categoria cadastrada com sucesso!', 'sucesso')
  
           } catch (error: any) {
-             alert('Erro ao cadastrado o Tema')
+             ToastAlert('Erro ao cadastrado o Tema', 'erro')
           }
        }
  
@@ -62,7 +63,7 @@ const FormCategorias = () => {
     }
  
     return (
-       <div className="flex flex-col items-center justify-center bg-cyan-600 min-h-[80vh]">
+       <div className="flex flex-col items-center justify-center bg-emerald-50 min-h-[80vh]">
           <h1 className="text-5xl text-center font-medium py-4">
              {id === undefined ? 'Cadastre Uma Nova Categoria' : 'Editar Categoria'}
           </h1>
@@ -80,7 +81,7 @@ const FormCategorias = () => {
                 />
              </div>
              <button
-                className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-4 mx-auto mb-16 block"
+                className="rounded text-slate-100 bg-emerald-800 hover:bg-emerald-950 w-1/2 py-4 mx-auto mb-16 block"
                 type="submit"
              >
                 {id === undefined ? 'Cadastrar' : 'Editar'}
