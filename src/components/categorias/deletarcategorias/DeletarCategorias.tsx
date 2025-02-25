@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react"
-import { RotatingLines } from "react-loader-spinner"
-import { useNavigate, useParams } from "react-router-dom"
-import Categoria from "../../../models/Categoria"
-import { deletar, listar } from "../../../services/Service"
+import { useEffect, useState } from 'react'
+import { RotatingLines } from 'react-loader-spinner'
+import { useNavigate, useParams } from 'react-router-dom'
+import Categoria from '../../../models/Categoria'
+import { deletar, listar } from '../../../services/Service'
+import { ToastAlert } from '../../../utils/ToastAlert'
 
 const DeletarCategorias = () =>{
 
@@ -17,7 +18,7 @@ const DeletarCategorias = () =>{
         try {
             await listar(`/categorias/${id}`, setCategoria)
         } catch (error: any) {
-            alert('Categoria não encontrada!')
+            ToastAlert('Categoria não encontrada!', 'info')
         }
     }
 
@@ -33,10 +34,10 @@ const DeletarCategorias = () =>{
         try {
             await deletar(`/categorias/${id}`)
 
-            alert('Categoria apagada com sucesso')
+            ToastAlert('Categoria apagada com sucesso.', 'sucesso')
 
         } catch (error) {
-            alert('Erro ao apagar a categoria')
+            ToastAlert('Erro ao apagar a categoria', 'erro')
         }
 
         setIsLoading(false)
@@ -44,7 +45,7 @@ const DeletarCategorias = () =>{
     }
 
     function retornar() {
-        navigate("/categorias")
+        navigate('/categorias')
     }
 
     return (
@@ -58,7 +59,7 @@ const DeletarCategorias = () =>{
                     Categoria
                 </header>
                 <p className='p-8 text-3xl bg-white h-full'>{categoria.nome}</p>
-                <div className="flex">
+                <div className='flex'>
                     <button
                         className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'
                         onClick={retornar}
@@ -72,10 +73,10 @@ const DeletarCategorias = () =>{
                     >
                         {isLoading ?
                             <RotatingLines
-                                strokeColor="white"
-                                strokeWidth="5"
-                                animationDuration="0.75"
-                                width="24"
+                                strokeColor='white'
+                                strokeWidth='5'
+                                animationDuration='0.75'
+                                width='24'
                                 visible={true}
                             /> :
                             <span>Sim</span>

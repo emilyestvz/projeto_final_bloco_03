@@ -6,8 +6,14 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.class__extra {
-    background-color: #000000;
+/* Fonte Home para Titulos*/
+.fontStyle {
+    font-family: "Bebas Neue", serif;
+    font-size: 10rem;
+    transition: all 0.4s ease-in-out;
+    transform: scale(1);
+    overflow: hidden;
+
 }
 
 .backgroundImg {
@@ -19,43 +25,3 @@ body {
     background-position: center;
 }
 
-/*Exclusivo: Home.tsx*/
-.button-config {
-    background-color: var(--custom-gray-dark);
-    color: white;
-    cursor: pointer;
-    
-
-    &:hover {
-        background-color: var(--custom-brown);
-        transition: all 0.5s ease-in-out;
-        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-    }
-}
-
-
-.button-edit {
-    background-color: var(--custom-brown);
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: var(--custom-brown-rose);
-        transition: all 0.4s ease-in-out;
-        transform: scale(1.1);
-        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-    }
- }
-
-.button-del {
-    background-color: var(--custom-gray);
-
-    &:hover {
-        background-color: var(--custom-gray-brown);
-        transition: all 0.4s ease-in-out;
-        transform: scale(1.1);
-        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-    }
- 
-}
